@@ -5,13 +5,11 @@ class ReactAdapterConsumer extends React.Component {
     super(props);
     this.state = { Component: () => null };
     this.RemoteComponent = React.lazy(() =>
-      this.props.importer().then(component => {
-        return {
-          // Adapted needs to be used such that it utilizes render from remote app
-          default: typeof window == 'undefined' ? null : component.Adapted,
-        };
-      }),
-    );
+      this.props.importer().then(component => ({
+        // Adapted needs to be used such that it utilizes render from remote app
+        default: component.Adapted,
+      })
+    ));
   }
 
   render() {

@@ -11,10 +11,15 @@ const Header = ({ eventBus }) => (
       <Link to="/sub-about">Sub about</Link>
     </li>
     <li>
-      <a href="/" onClick={(e) => {
-        e.preventDefault();
-        eventBus.navigate("/profile");
-      }}>Go back to profile</a>
+      <a
+        href="/"
+        onClick={(e) => {
+          e.preventDefault();
+          eventBus.navigate("/profile");
+        }}
+      >
+        Go back to profile
+      </a>
     </li>
     <Outlet />
   </ul>
